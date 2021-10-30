@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+<form action="." method="POST">
+  {% csrf_token %} 
+  {{ form.as_p}}        <!-- Display form as paragraph -->
+<!-- {{ form.as_ol}} we will get form fields as Unordered List--> 
+<input type="submit" value="Save" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'index.html' %} {% block content %}
+<h1>Hello World</h1>
+<h3>{{ title|upper }}</h3>  
+<!--Here element|upper is filter and '|' is called as Pipe  --> 
+<p>You are in About us Page</p>
+
+<p>{{ id }}</p>
+
+<!-- Using Conditions in Templates-->
+
+<ul>
+  {% for abc in list %} {% if abc == 123 %}
+  <li>{{ forloop.counter }} - {{ abc|add:22 }}</li>
+  {% elif abc == "Arjun" %}
+  <li>Myself Arjun</li>
+  {% else %}
+  <li>{{ forloop.counter }} - {{ abc }}</li>
+  {% endif %} {% endfor %}
+</ul>
+
+{% endblock %}
