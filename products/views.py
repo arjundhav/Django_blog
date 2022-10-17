@@ -1,12 +1,12 @@
+from random import randrange
 from django.shortcuts import render, get_object_or_404
 
-from .forms import ProductForm, RawProductForm
+from .forms import ProductForm
 
 from .models import Product
 # Create your views here.
 
-
-def product_create_view(request):                                # to get form data
+def product_create_view(request):                            # to get form data
     form = ProductForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -20,25 +20,28 @@ def product_create_view(request):                                # to get form d
 
 
 def product_detail_view(request):
-    object = Product.objects.get(id=1)
+    # obj = Product.objects.get(id=15)
     # context={
-    #   'title':obj.title,
-    #  'description':obj.description
-    # }
+    #    'title':obj.title,
+    #   'description':obj.description
+    #  }
+    
+    obj = get_object_or_404(Product, id=18)
     context = {
-        'obj': object
+        "object": obj
     }
-    return render(request, "product/detail.html", context)
+    return render(request, "product/product_details.html", context)
 
 
-def dynamic_lookup_view(request, my_id):
-    #object = Product.objects.get(id=my_id)
-    object = get_object_or_404(Product, id=id)
+def product_update_view(request, id=id):
+    obj = get_object_or_404(Product, id=id)
+    form = ProductForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
     context = {
-        "obj": object
+        'form': form
     }
-    return render(request, "product/detail.html", context)
-
+    return render(request, "products/product_create.html", context)
 
 def product_delete_view(request):
     object = get_object_or_404(Product, id=id)

@@ -30,8 +30,8 @@ class ProductForm(forms.ModelForm):
     #Validation for Title
     def clean_title(self, *args, **kargs):
         title=self.cleaned_data.get("title")
-        if not title.startswith("Product"):
-            raise forms.ValidationError("Enter Valid Product")
+        # if not title.startswith("Product"):
+        #     raise forms.ValidationError("Enter Valid Product")
         return title
 
 

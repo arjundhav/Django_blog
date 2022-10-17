@@ -3,13 +3,19 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from users import views as user_views
 from blog import views as blog_views
+from products import views as product_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path('', include('products.urls')),
+    path('create/', product_views.product_create_view, name="product-create"),
+    path('list/', product_views.product_create_view, name="product-list"),
+    path('detail/', product_views.product_detail_view, name="product-detail"),
+
     path('', blog_views.home_view, name='home'),
-    path('products/', include('products.urls')),
     path('register/',user_views.register, name='register'),
     path('profile/',user_views.profile, name='profile'),
     path('login/',auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),

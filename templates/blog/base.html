@@ -26,6 +26,16 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"class="btn btn-secondary dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Products
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                              <a class="dropdown-item" href="{%url 'product-create' %}">Add Product</a>
+                              <a class="dropdown-item" href="{% url 'product-list'%}">Product List</a>
+                            </div>
+                          </div>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
@@ -51,9 +61,10 @@
                 <div class="media">
                     <div class="media-body">
                         <div class="form-group">
-                            <center>
+                         <center>
                             <label> <h2>Post your Ideas </h2> </label> <br>
-                            <a class="btn btn-outline-info" href="{% url 'post-create' %}">Create Blog</a> </centre>
+                            <a class="btn btn-outline-info" href="{% url 'post-create' %}">Create Blog</a> 
+                         </centre>
                         </div>
                           <br> 
                         {% block content %}{% endblock %}
@@ -65,7 +76,7 @@
                 <div class="content-section">
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-light">Latest Posts</li>
-                            <li class="list-group-item list-group-item-light">Announcements</li>
+                            <li class="list-group-item list-group-item-light">Old Post</li>
                         </ul>
                     </p>
                 </div>
