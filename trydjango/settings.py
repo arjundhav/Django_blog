@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms', #an application that helps to manage Django forms. It allows adjusting form properties (such as method, send button or CSS classes) on the backend without having to re-write them in the template.
+    
     #own app
-    'products',
     'users',
     'blog',
 ]
@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 
 # Default primary key field type

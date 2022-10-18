@@ -1,19 +1,20 @@
 {% extends "blog/base.html" %} {% block content %} {% for post in posts %}
-<div class="container"> 
-    <article class="media content-section">
-        <img class="rounded-circle article-img" style="width:50px" src="{{ post.author.profile.image.url }}">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{ post.author }}</a>
-                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-                
-            <a href="{% url 'post-detail' post.id %}" class="btn btn-primary a-btn-slide-text"> Edit</a>
-            <hr>
-        </div> 
+<div class="card"> 
+    <div class="card-body">
+       <article class="media content-section">
+         <img class="rounded-circle article-img" style="width:70px" src="{{ post.author.profile.image.url }}">
+         <div class="media-body">
+             <div class="article-metadata">
+                 <a class="mr-2" href="#">{{ post.author }}</a> 
+                 <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small> <hr>
+             </div>
 
-    </article>
+             <h3 class="article-title card-title" href="#">{{ post.title }}  <a href="{% url 'post-detail' post.id %}" class="btn btn-outline-info  btn-sm"> Edit</a></h3>  
+            
+             <p class="article-content card-text">{{ post.content }}</p> <br>
+         </div> 
+       </article>
+   </div>
 </div>
+<br>
 {% endfor %} {% endblock content %}
